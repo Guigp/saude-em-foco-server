@@ -15,7 +15,7 @@ exports.login = (req, res, next) => {
     error.message = "Dados incompletos!";
     throw error;
   }
-  console.log("EMAIL:", email);
+
   User.findOne({ email: email })
     .then(user => {
       if (!user) {
@@ -63,10 +63,7 @@ exports.signup = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     const error = new Error("Falha na validação!");
-    // console.log("ERROS EM SIGNUP:", errors);
     error.statusCode = 422;
-
-    //error.data = errors.array();
     throw error;
   }
   const email = req.body.email;
@@ -86,7 +83,6 @@ exports.signup = (req, res, next) => {
       res.status(201).json({ message: "Usuário criado!", userId: result._id });
     })
     .catch(error => {
-      //   console.log("ENTROU NO ERRO LADO SERVIDOR");
       res.status(422).json(err);
       if (!error.statusCode) {
         error.statusCode = 500;
@@ -106,14 +102,10 @@ exports.updateUser = async (req, res, next) => {
   if (!user) {
     throw new Error("Wrong data,no user!");
   }
-  //console.log("user:", user);
+
   const name = req.body.name;
   const email = req.body.email;
   const genre = req.body.genre;
-  console.log("name:", name);
-  console.log("email:", email);
-  console.log("genre:", genre);
-  console.log("avatar:", avatarURL);
 
   try {
     if (name) user.name = name;

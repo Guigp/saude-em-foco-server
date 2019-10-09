@@ -1,4 +1,3 @@
-//const Complaint = require("../models/complaint");
 const mongoose = require("mongoose");
 const Complaint = mongoose.model("Complaint");
 const User = mongoose.model("User");
@@ -7,12 +6,9 @@ const path = require("path");
 const fs = require("fs");
 
 exports.addComplaint = async (req, res, next) => {
-  //const user = req.body.user;
-  //console.log(req.file.path);
   const locationName = req.body.locationName;
   const location = JSON.parse(req.body.location);
   const userId = req.userId;
-  let userName = "";
 
   const complaint = new Complaint({
     user: req.userId,
@@ -60,7 +56,7 @@ exports.getComplaints = async (req, res, next) => {
       return { ...complaint._doc, userName: user.name };
     });
     const complaintObjReturn = await Promise.all(cmp);
-    // console.log(complaintObjReturn);
+
     res.send({ allComplaints: complaintObjReturn });
   } catch (error) {
     res.status(422).json(error);

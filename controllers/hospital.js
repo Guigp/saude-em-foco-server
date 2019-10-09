@@ -37,9 +37,7 @@ exports.setWaitingTime = async (req, res, next) => {
   try {
     const hospitalId = req.body.hospitalId;
     const hospital = await Hospital.findById(hospitalId);
-
     const reqTime = req.body.waitingTime;
-    console.log(reqTime);
     const isValid = Number(reqTime);
     if (!isValid || isValid <= 0) {
       throw new Error("Wrong input type!");
@@ -141,7 +139,7 @@ exports.indication = async (req, res, next) => {
         }
       });
     }
-    console.log(resultFlags);
+
     res.status(200).json({
       message: "Indicação realizada com sucesso!",
       indicationList: resultFlags ? resultFlags : result,

@@ -1,5 +1,4 @@
 const express = require("express");
-const Hospital = require("../models/hospital");
 const hospitalController = require("../controllers/hospital");
 const isAuth = require("../middleware/is-auth");
 const router = express.Router();

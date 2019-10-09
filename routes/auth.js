@@ -6,11 +6,6 @@ const authController = require("../controllers/auth");
 const isAuth = require("../middleware/is-auth");
 const router = express.Router();
 
-// router.use("/", (req, res, next) => {
-//   console.log("EMAIL00000:", req.body.email);
-//   res.send("<h1>SAUDE EM FOCO RODANDO...</h1>");
-// });
-
 router.put(
   "/signup",
   [
@@ -36,11 +31,7 @@ router.put(
   authController.signup
 );
 
-router.post(
-  "/login",
-  authController.login
-  //res.redirect("/");
-);
+router.post("/login", authController.login);
 
 router.post("/updateUser/:userId", isAuth, authController.updateUser);
 

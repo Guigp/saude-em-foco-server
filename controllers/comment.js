@@ -72,20 +72,10 @@ exports.getAllComments = async (req, res, next) => {
       };
     });
 
-    // const promise2 = await Hospital.find({});
-
-    // hospitalsAndCommentsNumber = promise2.map(hospital => {
-    //   return {
-    //     hospital: hospital._id,
-    //     numberComments: hospital.comments.length
-    //   };
-    // });
     const allComments = await Promise.all(promise1);
 
     res.send({
       allComments: allComments
-
-      // hospitalsAndCommentsNumber: hospitalsAndCommentsNumber
     });
   } catch (error) {
     res.status(422).json(error);
