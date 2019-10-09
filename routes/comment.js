@@ -1,4 +1,5 @@
 const express = require("express");
+const Comment = require("../models/comment");
 const commentController = require("../controllers/comment");
 const isAuth = require("../middleware/is-auth");
 const router = express.Router();

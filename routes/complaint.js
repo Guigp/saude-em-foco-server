@@ -1,5 +1,5 @@
 const express = require("express");
-
+const Complaint = require("../models/complaint");
 const complaintController = require("../controllers/aedes");
 const isAuth = require("../middleware/is-auth");
 const router = express.Router();

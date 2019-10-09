@@ -59,7 +59,8 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect(keys.mongoURI)
+  .connect(keys.mongoURI, { useNewUrlParser: true })
+
   .then(result => {
     const PORT = process.env.PORT || 8080;
     const server = app.listen(PORT);
