@@ -6,6 +6,9 @@ const authController = require("../controllers/auth");
 const isAuth = require("../middleware/is-auth");
 const router = express.Router();
 
+router.get("/", (req, res) => {
+  res.send({ Hello: "Hello World!" });
+});
 router.put(
   "/signup",
   [

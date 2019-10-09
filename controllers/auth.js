@@ -2,7 +2,7 @@ const User = require("../models/user");
 const { validationResult } = require("express-validator/check");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { authSecret } = require("../.env");
+const keys = require("../config/keys");
 
 exports.login = (req, res, next) => {
   const email = req.body.email;
@@ -37,7 +37,7 @@ exports.login = (req, res, next) => {
 
       const token = jwt.sign(
         { email: loadedUser.email, userId: loadedUser._id.toString() },
-        authSecret,
+        keys.authSecret,
         { expiresIn: 86400 }
       );
       res.status(200).json({
