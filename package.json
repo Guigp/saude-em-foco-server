@@ -1,0 +1,29 @@
+{
+  "name": "saude",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Guilherme Petry",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.3",
+    "multer": "^1.4.2",
+    "socket.io": "^2.2.0",
+    "uuidv4": "^4.0.0"
+  }
+}
